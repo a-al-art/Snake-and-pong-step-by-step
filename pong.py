@@ -37,7 +37,7 @@ pygame.display.set_caption(TITLE)
 
 clock = pygame.time.Clock()
 
-fon_img = pygame.image.load('fon.png')
+fon_img = pygame.image.load('photos/fon.png')
 
 
 def pong():

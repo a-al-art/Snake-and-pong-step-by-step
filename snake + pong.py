@@ -3,7 +3,12 @@ import random
 import pygame
 import pygame_menu
 
+from config import ICON, FILE_BACK
+
 pygame.init()
+pygame.font.init()
+
+# snake constance
 
 # цветa
 RED = (255, 0, 0)
@@ -35,14 +40,41 @@ NAME = 'Snake game'
 pygame.display.set_caption(NAME)
 
 # делаем другую иконку окна
-img = pygame.image.load('snake_photo.png')
+img = pygame.image.load(ICON)
 pygame.display.set_icon(img)
 timer = pygame.time.Clock()
 # шрифт
 comicsansms = pygame.font.SysFont('comicsansms', 32)
 
 # фон для меню
-fon_img = pygame.image.load('fon.png')
+fon_img = pygame.image.load(FILE_BACK)
+
+# pong constance
+# цвета
+DARK_GREEN = (84, 140, 11)
+# GREEN = (217, 245, 181)
+
+# задаем раземры экрана
+WIDTH = 460
+HEIGHT = 530
+
+FPS = 30
+# шрифты
+ARIAl = pygame.font.match_font('arial')
+ARIAl_42 = pygame.font.Font(ARIAl, 42)
+ARIAl_32 = pygame.font.Font(ARIAl, 32)
+
+# название окна
+TITLE = 'Single ping pong'
+
+# парамерты платформы
+PLAT_WIDTH = 150
+PLAT_HEIGHT = 15
+PLAT_SPEED = 15
+
+# параметры шаркика
+CIR_RADIUS = 15
+CIR_SPEED = 10
 
 
 # класс для змейки
@@ -189,40 +221,12 @@ def apple_square():
         timer.tick(4 + speed)
 
 
-pygame.init()
-pygame.font.init()
-
-# цвета
-DARK_GREEN = (84, 140, 11)
-# GREEN = (217, 245, 181)
-
-# задаем раземры экрана
-WIDTH = 460
-HEIGHT = 530
-
-FPS = 30
-# шрифты
-ARIAl = pygame.font.match_font('arial')
-ARIAl_42 = pygame.font.Font(ARIAl, 42)
-ARIAl_32 = pygame.font.Font(ARIAl, 32)
-
-# название окна
-TITLE = 'Single ping pong'
-
-# парамерты платформы
-PLAT_WIDTH = 150
-PLAT_HEIGHT = 15
-PLAT_SPEED = 15
-
-# параметры шаркика
-CIR_RADIUS = 15
-CIR_SPEED = 10
-
 # создание экрана и его названия
 # screen = pygame.display.set_mode([WIDTH, HEIGHT])
 pygame.display.set_caption(TITLE)
 
 clock = pygame.time.Clock()
+
 
 # fon_img = pygame.image.load('fon.png')
 

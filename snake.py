@@ -35,14 +35,14 @@ NAME = 'Snake game'
 pygame.display.set_caption(NAME)
 
 # делаем другую иконку окна
-img = pygame.image.load('snake_photo.png')
+img = pygame.image.load('photos/snake_photo.png')
 pygame.display.set_icon(img)
 timer = pygame.time.Clock()
 # шрифт
 comicsansms = pygame.font.SysFont('comicsansms', 32)
 
 # фон для меню
-fon_img = pygame.image.load('fon.png')
+fon_img = pygame.image.load('photos/fon.png')
 
 
 # класс для змейки
