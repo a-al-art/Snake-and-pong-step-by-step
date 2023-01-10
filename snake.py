@@ -196,7 +196,7 @@ main_theme.set_background_color_opacity(0.7)
 # экран с меню
 menu = pygame_menu.Menu('Welcome', 400, 300,
                         theme=main_theme)
-menu.add.text_input('Имя :', default='Игрок 1')
+menu.add.text_input('Имя: ', default='Игрок 1')
 menu.add.button('Играть', apple_square)
 menu.add.button('Выход', pygame_menu.events.EXIT)
 
