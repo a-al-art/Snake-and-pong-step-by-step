@@ -1,4 +1,4 @@
-# создали змейку
+# неправильное передвижение змейки
 import pygame
 
 # цветa
@@ -21,6 +21,13 @@ size = [LEN_SQ * NUM_SQ + 2 * LEN_SQ + INDENT * NUM_SQ,
 screen = pygame.display.set_mode(size)
 # даём название окну
 pygame.display.set_caption('Snake game')
+timer = pygame.time.Clock()
+
+
+class Snake:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
 
 
 # функция для рисования квадратиков (как для поля, так и для змейки)
@@ -30,20 +37,28 @@ def add_new_block(color, row, col):
                                      LEN_SQ, LEN_SQ])
 
 
-class Snake:
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
-
-
-snake_pos = [Snake(9, 9)]
-
+snake_pos = [Snake(9, 9), Snake(9, 10)]
+d_row = 0
+d_col = 1
 # игровой цикл while
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             print('выход')
             pygame.quit()
+        elif event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_UP and d_col != 0:
+                d_row = -1
+                d_col = 0
+            elif event.key == pygame.K_DOWN and d_col != 0:
+                d_row = 1
+                d_col = 0
+            elif event.key == pygame.K_LEFT and d_row != 0:
+                d_row = 0
+                d_col = -1
+            elif event.key == pygame.K_RIGHT and d_row != 0:
+                d_row = 0
+                d_col = 1
 
     screen.fill(MAIN_COLOR)
     pygame.draw.rect(screen, TITLE_COL, [0, 0, size[0], TITLE_INDENT])
@@ -61,4 +76,7 @@ while True:
 
     for block in snake_pos:
         add_new_block(SNAKE_COLOR, block.x, block.y)
+        block.x += d_row
+        block.y += d_col
     pygame.display.flip()
+    timer.tick(2)
